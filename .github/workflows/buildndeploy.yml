@@ -1,0 +1,18 @@
+name: Build and Deploy Blog Site
+
+on:
+    push:
+        branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: hydephp/action@master
+        with:
+          deploy-to: "pages"
